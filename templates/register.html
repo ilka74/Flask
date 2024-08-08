@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}}
+
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}"> {{msg}} </div>
+{% endfor %}
+    <link type="text/css" href="{{ url_for('static', filename='css/registry.css')}}" rel="stylesheet" />
+<form action="" method="post" class="form-contact">
+    <p><label>Как к Вам обращаться?</label>
+        <input type="text" name="name" value="" required> </p>
+    <p><label>Ваш Ник (уникальное имя):</label>
+        <input type="text" id="nik" name="nik" value="" required> </p>
+    <p><label>Email:</label>
+        <input type="email" id="email" name="email" value="" required></p>
+    <p><label>Номер телефона:</label>
+        <input type="text" name="phone" value="" required> </p>
+    <p><label>ИНН организации</label>
+        <input type="text" name="inn_organization" value="" required> </p>
+    <p><label>Наименование <br> организации:</label>
+        <textarea name="name_organization" rows="5" cols="50" required></textarea></p>
+    <p><label>Придумайте пароль (не менее 8 знаков)</label>
+        <input type="password" name="psw" value="" required></p>
+    <p><label>Введите пароль еще раз</label>
+        <input type="password" name="psw2" value="" required></p>
+    <p><input type="submit" value="Регистрация"></p>
+</form>
+{% endblock %}

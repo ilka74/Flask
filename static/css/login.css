@@ -1,0 +1,12 @@
+p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px
+}
+
+label {
+   margin-right: 10px; /* Отступ между меткой и полем ввода по горизонтали */
+   font-weight: bold; /* Жирный шрифт для метки */
+}
+

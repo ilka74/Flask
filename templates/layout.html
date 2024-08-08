@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+    <title>{{title}}</title>
+</head>
+<body>
+<ul class="mainmenu">
+    <li><a href="{{ url_for('index') }}">Главная</a> </li>
+    <li><a href="{{ url_for('register') }}">Регистрация</a> </li>
+    <li><a href="{{ url_for('tasks') }}">Отправить сообщение</a> </li>
+    <li><a href="{{ url_for('assessment') }}">Мои задачи</a> </li>
+    <li><a href="{{ url_for('edit_profile') }}">Профиль</a> </li>
+    <li><a href="{{ url_for('delete_account') }}">Удаление пользователя</a> </li>
+    <li><a href="{{ url_for('admin_tasks') }}">Вход админа</a> </li>
+    <li><a href="{{ url_for('logout') }}">Выход</a> </li>
+</ul>
+
+<div class="content">
+    {% block content %}
+    {% endblock%}
+</div>
+</body>
+</html>

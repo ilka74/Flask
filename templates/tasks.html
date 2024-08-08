@@ -1,0 +1,29 @@
+
+{% extends 'layout.html' %}}
+
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}"> {{msg}} </div>
+{% endfor %}
+
+<link type="text/css" href="{{ url_for('static', filename='css/registry.css')}}" rel="stylesheet" />
+
+
+<form action="" method="post" class="form-contact">
+    <p><label>Вы зашли как:</label>
+        <input type="text" id="nik" name="nik" value="{{ user.nik }}" required readonly></p>
+    <p><label>Наименование организации:</label>
+        <textarea name="name_organization" rows="3" cols="70" required readonly>{{ profile.name_organization }}
+        </textarea></p>
+    <p><label>ИНН Вашей организации</label>
+        <input type="text" name="inn_organization" value="{{ profile.inn_organization }}" required readonly></p>
+    <p><label>Ваш вопрос (до 100 символов)</label>
+        <textarea name="task_name" rows="2" cols="50" required></textarea></p>
+    <p><label>Подробное описание проблемы</label>
+        <textarea name="description" rows="3" cols="70"  required></textarea></p>
+
+    <p><input type="submit" value="Отправить сообщение"></p>
+</form>
+
+{% endblock %}
+

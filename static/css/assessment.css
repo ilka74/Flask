@@ -1,0 +1,88 @@
+ul.mainmenu {
+    list-style: none;
+    background: #8A2BE2;
+    height: 60px; /* Высота меню */
+    margin: 0;
+    padding: 0;
+    color: #fdc073;
+    font-size: 20px;
+    overflow: hidden;
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0; /* Устанавливаем меню в верхней части экрана */
+    left: 0; /* Устанавливаем меню в левом краю */
+    width: 100%; /* Ширина меню на всю ширину экрана */
+    z-index: 1000; /* Устанавливаем порядок наложения выше других элементов */
+}
+
+ul.mainmenu li {
+    float: left;
+    margin: 20px 30px 30px 40px; /* Устанавливаем отступы для элементов меню */
+}
+
+ul.mainmenu li.last {
+    float: right; /* Меню вправо */
+}
+
+ul.mainmenu li a {
+    color: #ABCDEF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul.mainmenu li a:hover {
+    color: #ABCDEF;
+}
+
+body {
+    margin: 0; /* Убираем отступы по умолчанию */
+    font-family: Arial, sans-serif;
+    background-color: #E6E6FA;
+}
+
+.container {
+    text-align: center; /* Центрируем текст в контейнере */
+    margin-top: 80px; /* Отступ сверху для основного контента, чтобы избежать перекрытия с меню */
+}
+
+table {
+    border-collapse: collapse; /* Объединение границ */
+    width: 100%; /* Ширина таблицы */
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 20px auto; /* Отступ вокруг таблицы (по 20px сверху и снизу, авто по сторонам) */
+    background-color: white; /* Белый фон для таблицы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Эффект тени */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Граница для ячеек таблицы */
+    padding: 8px; /* Отступ внутри ячеек таблицы */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+th {
+    background-color: #4CAF50; /* Зеленый фон для заголовка */
+    color: white; /* Белый текст для заголовка */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Светло-серый цвет при наведении */
+}
+
+.rating {
+    width: 100px; /* Ширина для выбора оценки */
+}
+
+.flash {
+    padding: 10px;
+    display: inline-block;
+}
+
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}

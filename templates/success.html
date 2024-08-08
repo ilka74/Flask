@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}}
+
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}"> {{msg}} </div>
+{% endfor %}
+
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='css/registry.css')}}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успешная регистрация</title>
+    <script>
+        // Redirect after 0,05 seconds (50 milliseconds)
+        setTimeout(function() {
+            window.location.href = "{{ url_for('index') }}";
+        }, 50);  // 50 milliseconds = 0,05 seconds
+    </script>
+</head>
+<!--<body>-->
+<!--    <h2>Вы будете перенаправлены на страницу авторизации через 3 секунды...</h2>-->
+<!--</body>-->
+</html>
+{% endblock %}

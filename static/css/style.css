@@ -1,0 +1,29 @@
+body {
+    background-color: #E6E6FA;
+}
+
+ul.mainmenu {
+    list-style: none;
+    background: #8A2BE2;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    color: #fdc073;
+    font-size: 20px;
+    overflow: hidden;
+}
+ul.mainmenu li {
+    float: left;
+    margin: 20px 20px 30px 30px;
+}
+ul.mainmenu li.last {float: right;}
+
+ul.mainmenu li a {
+    color: #ABCDEF;
+    text-decoration: none;
+    font-weight: bold
+}
+ul.mainmenu li a:hover {
+    color: #ABCDEF;
+}
+

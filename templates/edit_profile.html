@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}}
+
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}"> {{msg}} </div>
+{% endfor %}
+<link type="text/css" href="{{ url_for('static', filename='css/registry.css')}}" rel="stylesheet" />
+
+    <h3>Редактирование профиля (Поле "Ник" не редактируется)</h3>
+
+<form action="/edit_profile" method="post" class="form-registry">
+    <p><label for="nik">Ваш Ник:</label>
+        <input type="text" id="nik" name="nik" value="{{ user.nik }}" required readonly></p>
+    <p><label for="name">Имя:</label>
+        <input type="text" id="name" name="name" value="{{ profile.name }}" required></p>
+    <p><label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ profile.email }}" required></p>
+    <p><label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" value="{{ profile.phone }}" required><br></p>
+    <p><label for="name_organization">Наименование<br>организации:</label>
+        <textarea id="name_organization" name="name_organization" rows="3" cols="50" required>{{ profile.name_organization }}</textarea></p>
+    <p><label for="inn_organization">ИНН:</label>
+        <input type="text" id="inn_organization" name="inn_organization" value="{{ profile.inn_organization }}" required></p>
+
+    <input type="submit" value="Сохранить изменения">
+
+{% endblock %}
+

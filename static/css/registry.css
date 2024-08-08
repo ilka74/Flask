@@ -1,0 +1,39 @@
+body {
+text-align: center
+}
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px
+}
+
+label {
+   margin-right: 10px; /* Отступ между меткой и полем ввода по горизонтали */
+   font-weight: bold; /* Жирный шрифт для метки */
+}
+
+input[type="submit"] {
+    background-color: #00FFFF;  /* Красный цвет фона кнопки */
+    color: red; /* Цвет текста кнопки */
+    border-radius: 4px; /* Закругленные края кнопки */
+    padding: 14px 70px; /* Отступы для кнопки */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.flash {
+    padding: 10px;
+    display: inline-block
+}
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+

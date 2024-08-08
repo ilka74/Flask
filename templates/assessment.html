@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}"> {{msg}} </div>
+{% endfor %}
+
+<link type="text/css" href="{{ url_for('static', filename='css/assessment.css')}}" rel="stylesheet" />
+
+<div class="container">
+    <h3><u>Мои задачи</u></h3>
+
+    {% if user %}  <!-- Проверка на наличие пользователя -->
+        <div style="text-align: center; color: #0000CD">
+            <h3>Вы авторизованы как {{ user.nik }}</h3>
+        </div>
+    {% endif %}
+
+    {% if tasks %}
+    <form method="POST" action="{{ url_for('submit_ratings') }}"> <!-- Изменено на submit_ratings -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Задача</th>
+                    <th>Описание задачи</th>
+                    <th>Редактировать задачу</th>
+                    <th>Оценка</th>
+                    <th>Комментарий</th>
+                    <th>Закрыть задачу</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.task_name }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>
+                        <!-- Редактирование задачи -->
+                        <form method="POST" action="{{ url_for('assessment') }}" style="display:inline;">
+                            <input type="hidden" name="edit_task_id" value="{{ task.id }}">
+                            <textarea name="description" placeholder="Новое описание" required>{{ task.description }}</textarea>
+                            <button type="submit">Редактировать</button>
+                        </form>
+                    </td>
+                    <td>
+                        <!-- Оценка -->
+                        <select name="rating_{{ task.id }}">
+                            <option value="" disabled selected>Выбрать</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Комментарий -->
+                        <textarea name="comm_{{ task.id }}" placeholder="Введите комментарий" rows="1" style="width: 100%;" maxlength="200"></textarea>
+                    </td>
+                    <td>
+                        <!-- Закрытие задачи -->
+                        <form method="POST" action="{{ url_for('assessment') }}" style="display:inline;">
+                            <input type="hidden" name="delete_task_id" value="{{ task.id }}">
+                            <button type="submit">Закрыть</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit"><h3><i>Отправить</i></h3></button>
+    </form>
+    {% else %}
+    <h2><i>У Вас нет задач</i></h2>
+    {% endif %}
+</div>
+
+<script>
+    // Добавить обработчики событий для всех форм удаления
+    document.querySelectorAll('form[method="POST"]').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            // Проверка, если кнопка, спровоцировавшая отправку формы, имеет текст 'Закрыть'
+            if (form.querySelector('button').textContent.trim() === 'Закрыть') {
+                // Показать диалог подтверждения
+                if (!confirm('Вы уверены, что хотите закрыть и удалить эту задачу?')) {
+                    event.preventDefault(); // Предотвратить отправку формы, если пользователь отменяет
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}
