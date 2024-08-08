@@ -8,11 +8,11 @@
 <form action="" method="post" class="form-contact">
     <p><label>Как к Вам обращаться?</label>
         <input type="text" name="name" value="" required> </p>
-    <p><label>Ваш Ник (уникальное имя):</label>
+    <p><label>Ваш Ник (от 5 до 20 символов):</label>
         <input type="text" id="nik" name="nik" value="" required> </p>
-    <p><label>Email:</label>
+    <p><label>Электронная почта:</label>
         <input type="email" id="email" name="email" value="" required></p>
-    <p><label>Номер телефона:</label>
+    <p><label>Номер телефона <br>в формате <br> XXX-XXX-XXXX:</label>
         <input type="text" name="phone" value="" required> </p>
     <p><label>ИНН организации</label>
         <input type="text" name="inn_organization" value="" required> </p>
@@ -25,3 +25,4 @@
     <p><input type="submit" value="Регистрация"></p>
 </form>
 {% endblock %}
+
